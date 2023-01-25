@@ -34,6 +34,8 @@ from src.diffusion.extra_features_molecular import ExtraMolecularFeatures
 warnings.filterwarnings("ignore", category=PossibleUserWarning)
 
 
+
+
 def get_resume(cfg, model_kwargs):
     """ Resumes a run. It loads previous config without allowing to update keys (used for testing). """
     saved_cfg = cfg.copy()
@@ -126,7 +128,7 @@ def main(cfg: DictConfig):
         train_metrics = TrainAbstractMetricsDiscrete() if cfg.model.type == 'discrete' else TrainAbstractMetrics()
         visualization_tools = DivideTreeVisualization()
 
-        print("Extra features ",cfg.model.extra_features)
+        print("[INFO] Extra features ",cfg.model.extra_features)
 
         if cfg.model.type == 'discrete' and cfg.model.extra_features is not None:
             extra_features = ExtraFeatures(cfg.model.extra_features, dataset_info=dataset_infos)
