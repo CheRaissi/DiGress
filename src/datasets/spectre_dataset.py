@@ -33,6 +33,10 @@ class SpectreGraphDataset(Dataset):
         return data
 
 
+class TreeDataset(SpectreGraphDataset):
+    def __init__(self):
+        super().__init__('Alaska_51.pt')
+
 class Comm20Dataset(SpectreGraphDataset):
     def __init__(self):
         super().__init__('community_12_21_100.pt')
@@ -68,6 +72,10 @@ class SpectreGraphDataModule(AbstractDataModule):
         datasets = {'train': splits[0], 'val': splits[1], 'test': splits[2]}
         super().prepare_data(datasets)
 
+class TreesDataModule(SpectreGraphDataModule):
+    def prepare_data(self):
+        graphs = TreeDataset()
+        return super().prepare_data(graphs)
 
 class Comm20DataModule(SpectreGraphDataModule):
     def prepare_data(self):

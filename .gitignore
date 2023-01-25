@@ -146,7 +146,7 @@ archives/*
 results/*.ckpt
 results/qm9_molecules_h
 results/qm9_molecules_noh
-dgd/analysis/orca/orca
+src/analysis/orca/orca
 results/*
 ggg_data/
 ggg_utils/

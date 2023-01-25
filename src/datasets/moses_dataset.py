@@ -1,6 +1,7 @@
 from rdkit import Chem, RDLogger
 from rdkit.Chem.rdchem import BondType as BT
 import mini_moses as moses
+#import moses
 
 import os
 import os.path as osp

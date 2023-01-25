@@ -915,6 +915,12 @@ class SpectreSamplingMetrics(nn.Module):
             to_log['planar_acc'] = planar_acc
             wandb.run.summary['planar_acc'] = planar_acc
 
+        if 'tree' in self.metrics_list:
+            print('Computing trees accuracy...')
+            trees_acc = eval_acc_tree_graph(networkx_graphs)
+            to_log['trees_acc'] = trees_acc
+            wandb.run.summary['planar_acc'] = trees_acc
+
         if 'sbm' or 'planar' in self.metrics_list:
             print("Computing all fractions...")
             frac_unique, frac_unique_non_isomorphic, fraction_unique_non_isomorphic_valid = eval_fraction_unique_non_isomorphic_valid(
@@ -937,6 +943,12 @@ class Comm20SamplingMetrics(SpectreSamplingMetrics):
         super().__init__(dataloaders=dataloaders,
                          compute_emd=True,
                          metrics_list=['degree', 'clustering', 'orbit'])
+
+class TreesSamplingMetrics(SpectreSamplingMetrics):
+    def __init__(self, dataloaders):
+        super().__init__(dataloaders=dataloaders,
+                         compute_emd=True,
+                         metrics_list=['degree', 'tree','planar']) #spectre and orbit  ?
 
 
 class PlanarSamplingMetrics(SpectreSamplingMetrics):
