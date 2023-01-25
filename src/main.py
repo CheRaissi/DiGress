@@ -22,9 +22,9 @@ from src.datasets import guacamol_dataset, qm9_dataset, moses_dataset
 from src.datasets.spectre_dataset import SBMDataModule, Comm20DataModule, PlanarDataModule, SpectreDatasetInfos
 from src.datasets.dividetree_dataset import DivideTreeDataModule, DivideTreeDatasetInfos
 from src.metrics.abstract_metrics import TrainAbstractMetricsDiscrete, TrainAbstractMetrics
-from src.analysis.spectre_utils import PlanarSamplingMetrics, SBMSamplingMetrics, Comm20SamplingMetrics, TreesSamplingMetrics
-from diffusion_model import LiftedDenoisingDiffusion
-from diffusion_model_discrete import DiscreteDenoisingDiffusion
+from src.analysis.spectre_utils import TreesSamplingMetrics, PlanarSamplingMetrics, SBMSamplingMetrics, Comm20SamplingMetrics
+from src.diffusion_model import LiftedDenoisingDiffusion
+from src.diffusion_model_discrete import DiscreteDenoisingDiffusion
 from src.metrics.molecular_metrics import TrainMolecularMetrics, SamplingMolecularMetrics
 from src.metrics.molecular_metrics_discrete import TrainMolecularMetricsDiscrete
 from src.analysis.visualization import MolecularVisualization, NonMolecularVisualization, DivideTreeVisualization
